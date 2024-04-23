@@ -18,9 +18,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <StarField
-        width={window.innerWidth}
-        height={window.innerHeight}
-        key={`${window.innerWidth}.${window.innerHeight}`}
+        width={window?.innerWidth}
+        height={window?.innerHeight}
         {...starfieldProps}
       />
       <audio src="/day_one.mp3" autoPlay loop />
