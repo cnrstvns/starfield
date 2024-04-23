@@ -15,11 +15,23 @@ const starfieldProps  = {
 };
 
 export default function Home() {
+  if (typeof window === 'undefined') {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <audio src="/day_one.mp3" autoPlay loop />
+        <div className="absolute z-50 bottom-10 flex items-center gap-2 text-sm left-10 text-white bg-zinc-900 p-4 rounded-md font-medium">
+          <div className="animate-pulse rounded-full bg-indigo-400 size-2" />
+          Day One by Hans Zimmer from Interstellar
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <StarField
-        width={window?.innerWidth}
-        height={window?.innerHeight}
+        width={window.innerWidth}
+        height={window.innerHeight}
         {...starfieldProps}
       />
       <audio src="/day_one.mp3" autoPlay loop />
